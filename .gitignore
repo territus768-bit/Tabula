@@ -3,3 +3,4 @@ Documentation/
 *.un~
 text files/
 *.swp
+*.db
