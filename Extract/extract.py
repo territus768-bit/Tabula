@@ -20,9 +20,7 @@ def parse(source, output):
     #though I think it is probably a str in most if not all of the wikitionary data.
     entry["etymology_number"] = int(raw.get("etymology_number") or 0)
 
-    entry["is_link"] = False
-    
-    
+    entry["is_link"] = False 
     entry["meanings"] = []
     entry["alt_of"] = []
     entry["form_of"] = []
