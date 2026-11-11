@@ -1,10 +1,11 @@
 import sqlite3
-import pathlib
-from pprint import pprint
-import json
+from pathlib import Path
+#from pprint import pprint
+from json import loads
+import sys
 
 dict_path = "wiktionary-latin.db"
-dictionary = pathlib.Path(dict_path)
+dictionary = Path(dict_path)
 
 def lookup(word: str):
     if not dictionary.exists():
@@ -16,7 +17,7 @@ def lookup(word: str):
                             FROM dictionary
                             WHERE word = ?""", (word,))
         for item in result.fetchall():
-            entry = json.loads(item[1])
+            entry = loads(item[1])
             word_name = entry['word']
             part_of_speech = entry['pos']
             etymology_text = entry['etymology_text']
@@ -46,5 +47,4 @@ def lookup(word: str):
             
         #print(result.fetchall() or "word not found : (")
                
-word = "ut"
-lookup(word)
+lookup(sys.argv[1])
