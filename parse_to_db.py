@@ -44,7 +44,7 @@ def parse_to_db(source):
                 
     return (entry["word"], json.dumps(entry, ensure_ascii=False),)
 
-source_path = Path.cwd() / "text files" / "kaikki.jsonl"
+source_path = Path.cwd() / "kaikki.jsonl"
 #output_path = Path.cwd().parent / "text files" / "output.jsonl"
 
 source = source_path.open("r", encoding="utf-8")
